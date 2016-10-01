@@ -1,0 +1,8 @@
+:local(.icon) {
+  margin: 20px;
+}
+
+:local(.item_row) {
+  margin-bottom: 0px !important;
+}
+

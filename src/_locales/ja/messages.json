@@ -1,0 +1,50 @@
+{
+   "extName": {
+      "message": "Quick Drive",
+      "description": "extension name"
+   },
+   "extShortName": {
+      "message": "QuickDrive",
+      "description": "short extension name"
+   },
+   "extDesc": {
+      "message": "Google Driveへの簡易アクセスを提供します",
+      "description": "extension description"
+   },
+   "reset": {
+      "message": "リセット",
+      "description": "reset auth token"
+   },
+   "search": {
+      "message": "検索",
+      "description": "search"
+   },
+   "clear": {
+      "message": "クリア",
+      "description": "clear"
+   },
+   "search_text": {
+      "message": "検索語句を入力",
+      "description": "input search text"
+   },
+   "search_result": {
+      "message": "検索結果",
+      "description": "search result"
+   },
+   "recent": {
+      "message": "最近使用",
+      "description": "recent items"
+   },
+   "favorite": {
+      "message": "スター付き",
+      "description": "favorite items"
+   },
+   "lastViewedAt": {
+      "message": "最終閲覧",
+      "description": "last viewed at"
+   },
+   "dateFormat": {
+      "message": "YYYY年 M月 D日",
+      "description": "date format"
+   }
+}

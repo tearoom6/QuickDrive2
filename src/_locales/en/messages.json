@@ -1,0 +1,50 @@
+{
+   "extName": {
+      "message": "Quick Drive",
+      "description": "extension name"
+   },
+   "extShortName": {
+      "message": "QuickDrive",
+      "description": "short extension name"
+   },
+   "extDesc": {
+      "message": "Provides quick access to Google Drive",
+      "description": "extension description"
+   },
+   "reset": {
+      "message": "Reset",
+      "description": "reset auth token"
+   },
+   "search": {
+      "message": "Search",
+      "description": "search"
+   },
+   "clear": {
+      "message": "Clear",
+      "description": "clear"
+   },
+   "search_text": {
+      "message": "Input search text",
+      "description": "input search text"
+   },
+   "search_result": {
+      "message": "Search",
+      "description": "search result"
+   },
+   "recent": {
+      "message": "Recent",
+      "description": "recent items"
+   },
+   "favorite": {
+      "message": "Favorite",
+      "description": "favorite items"
+   },
+   "lastViewedAt": {
+      "message": "Last Viewed At",
+      "description": "last viewed at"
+   },
+   "dateFormat": {
+      "message": "MMM D, YYYY",
+      "description": "date format"
+   }
+}
