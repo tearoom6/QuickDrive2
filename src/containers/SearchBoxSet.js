@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onKeydown: (text, event) => {
+    onKeyDown: (text, event) => {
       if (event.keyCode === 13) {
         // to prevent page refresh
         event.preventDefault()

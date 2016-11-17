@@ -1,7 +1,7 @@
 import moment from 'moment'
 import GoogleDrive from '../GoogleDrive.js'
 import LocalStore from '../LocalStore.js'
-import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH} from '../constants.js'
+import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH, SAVE_KEY_SEARCH_TEXT} from '../constants.js'
 
 export const TYPE_NONE                = 'NONE'
 export const TYPE_SHOW_ITEMS          = 'SHOW_ITEMS'
@@ -88,6 +88,7 @@ export const requestSearchItems = (searchText) => {
       let blankTime = moment.unix(0).toString()
       items.sort( (a, b) => moment(b.viewedByMeTime || blankTime).unix() - moment(a.viewedByMeTime || blankTime).unix() );
       LocalStore.save(SAVE_KEY_RESULT_MAP[ITEM_TYPE_SEARCH], items)
+      LocalStore.save(SAVE_KEY_SEARCH_TEXT, searchText)
       dispatch(showItems(ITEM_TYPE_SEARCH, items))
     })
   }
