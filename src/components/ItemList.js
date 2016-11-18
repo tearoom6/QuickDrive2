@@ -21,13 +21,20 @@ class ItemList extends React.Component {
   }
 
   render() {
-    const { items } = this.props
+    const { items, isLoading } = this.props
+    if (isLoading) {
+      return (
+        <div>
+          <img className={styles.loading} src='./img/loading.gif' alt='loading...' />
+        </div>
+      )
+    }
     return (
       <div>
         {items.map(item =>
           <div key={item.id} className={styles.item_row + ' row thumbnail'}>
             <div className={'col-xs-1'}>
-              <a href={item.mimeType != 'application/vnd.google-apps.folder' ? item.webViewLink : 'https://drive.google.com/drive/#folders/' + item.id} target="_blank"><img className={styles.icon} src={item.iconLink} alt={item.name} width="32" height="32" /></a>
+              <a href={item.mimeType != 'application/vnd.google-apps.folder' ? item.webViewLink : 'https://drive.google.com/drive/#folders/' + item.id} target="_blank"><img className={styles.icon} src={item.iconLink} alt={item.name} /></a>
             </div>
             <div className={'col-xs-11'}>
               <h5><a href={item.mimeType != 'application/vnd.google-apps.folder' ? item.webViewLink : 'https://drive.google.com/drive/#folders/' + item.id} target="_blank">{item.name}</a></h5>

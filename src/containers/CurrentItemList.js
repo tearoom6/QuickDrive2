@@ -3,7 +3,8 @@ import ItemList from '../components/ItemList.js'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    items: state.items
+    items: state.items,
+    isLoading: state.isLoading
   }
 }
 
