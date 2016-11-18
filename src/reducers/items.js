@@ -5,6 +5,9 @@ const items = (state = [], action) => {
     case actions.TYPE_SHOW_ITEMS:
       return action.items
 
+    case actions.TYPE_SHOW_ADDITIONAL_ITEMS:
+      return state.concat(action.items)
+
     default:
       return state
   }

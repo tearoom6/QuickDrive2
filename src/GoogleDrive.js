@@ -65,11 +65,16 @@ const listAllFiles = (reqParams, callback) => {
 /**
  * Retrieve a list of File resources with limit count.
  * @param {Object} params to be sent with request. (query params)
- * @param {Integer} maximum count to retrieve files.
  * @param {Function} callback Function to call when the request is complete.
+ * @param {Integer} maximum count to retrieve files. (default: 0 means leaving it to Google API specification = 100)
+ * @param {String} page token to retrieve next page items. (default: null means getting first page items)
  */
-const listLimitedFiles = (reqParams, limitCount, callback) => {
-  reqParams.pageSize = limitCount
+const listLimitedFiles = (reqParams, callback, limitCount = 0, pageToken = null) => {
+  if (limitCount > 0)
+    reqParams.pageSize = limitCount
+  if (pageToken)
+    reqParams.pageToken = pageToken
+
   const request = gapi.client.drive.files.list(reqParams)
   request.execute((resp) => {
     callback(resp.files, resp.nextPageToken)

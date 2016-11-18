@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import GoogleDrive from '../GoogleDrive.js'
-import { requestItems } from '../actions'
+import { requestItems, requestNextPageItems } from '../actions'
 import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH} from '../constants.js'
 import styles from './ItemList.css'
 
@@ -14,10 +14,26 @@ const define_initialize_callback = (dispatch) => {
   }
 }
 
+const register_scroll_callback = (dispatch) => {
+  $('#item-list').scroll(function() {
+    const scrollTop = $(this).scrollTop()
+    const innerHeight = $(this).innerHeight()
+    const scrollHeight = $(this)[0].scrollHeight
+    const margin = 5
+    if (scrollTop + innerHeight + margin < scrollHeight)
+      // Do nothing until reaching bottom.
+      return
+
+    dispatch(requestNextPageItems())
+  })
+}
+
 class ItemList extends React.Component {
   componentDidMount() {
     define_initialize_callback(this.props.dispatch)
     $.getScript('https://apis.google.com/js/client.js?onload=initialize_items_list')
+
+    register_scroll_callback(this.props.dispatch)
   }
 
   render() {
@@ -30,7 +46,7 @@ class ItemList extends React.Component {
       )
     }
     return (
-      <div>
+      <div id="item-list" className={styles.scrollable}>
         {items.map(item =>
           <div key={item.id} className={styles.item_row + ' row thumbnail'}>
             <div className={'col-xs-1'}>

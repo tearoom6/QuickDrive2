@@ -8,6 +8,10 @@ const load = (key, callback) => {
   chrome.storage.local.get(key, callback)
 }
 
+const remove = (key) => {
+  chrome.storage.local.remove(key)
+}
+
 const clear = () => {
   chrome.storage.local.clear()
 }
@@ -15,6 +19,7 @@ const clear = () => {
 const LocalStore = {
   save,
   load,
+  remove,
   clear
 }
 
