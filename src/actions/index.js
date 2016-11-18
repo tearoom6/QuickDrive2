@@ -52,6 +52,10 @@ export const resetAuthToken = () => {
 export const requestItems = (itemType) => {
   return (dispatch) => {
     dispatch(loadLocalItems(itemType))
+    if (itemType === ITEM_TYPE_SEARCH) {
+      // Don't request items when search tab pressed.
+      return
+    }
     return new Promise((resolve, reject) => {
       let reqParams = {}
       switch (itemType) {
@@ -61,9 +65,6 @@ export const requestItems = (itemType) => {
         case ITEM_TYPE_FAVORITE:
           reqParams = {'fields': REQUEST_FIELDS, 'q': 'trashed = false and starred = true', 'orderBy': 'viewedByMeTime desc'}
           break
-        case ITEM_TYPE_SEARCH:
-          reject()
-          return
       }
       GoogleDrive.listLimitedFiles(reqParams, MAX_LIST_COUNT, (items, nextPageToken) => {
         resolve(items || [], nextPageToken)
