@@ -8,7 +8,7 @@
       "description": "short extension name"
    },
    "extDesc": {
-      "message": "Google Driveへの簡易アクセスを提供します",
+      "message": "Google Drive のファイル・フォルダに簡単にアクセスできます。",
       "description": "extension description"
    },
    "reset": {
