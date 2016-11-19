@@ -1,6 +1,6 @@
 {
   "name": "QuickDrive",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "description": "Chrome extension to access Google Drive quickly.",
   "main": "gulpfile.js",
