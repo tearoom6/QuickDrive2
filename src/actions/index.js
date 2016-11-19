@@ -79,7 +79,7 @@ const clearLastRequest = () => {
 
 const sortItemsByViewedByMeTime = (items) => {
   const blankTime = moment.unix(0).toString()
-  items.sort( (a, b) => moment(b.viewedByMeTime || blankTime).unix() - moment(a.viewedByMeTime || blankTime).unix() );
+  items.sort( (a, b) => moment(b.viewedByMeTime || blankTime).unix() - moment(a.viewedByMeTime || blankTime).unix() )
   return items
 }
 

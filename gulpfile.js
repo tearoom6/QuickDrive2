@@ -13,6 +13,7 @@ const replace = require('gulp-replace')
 const del = require('del')
 const zip = require('gulp-zip')
 const runSequence = require('run-sequence')
+const env = require('gulp-env')
 
 gulp.task('config', () => {
    console.log('copy config file.')
@@ -47,22 +48,30 @@ gulp.task('img', () => {
 
 gulp.task('js', () => {
    console.log('build js.')
+   const envs = env.set({
+      NODE_ENV: 'production'
+   })
    return gulp.src('./src/index.js')
       .pipe(plumber())
+      .pipe(envs)
       .pipe(webpack(require('./webpack.config.js')))
-      .pipe(replace('{{ENV}}', 'production'))
       .pipe(uglify())
       .pipe(header('/* copyright (c)tearoom6 2015 */'))
+      .pipe(envs.reset)
       .pipe(gulp.dest('./build'))
 })
 
 gulp.task('js-dev', () => {
    console.log('build js (dev).')
+   const envs = env.set({
+      NODE_ENV: 'development'
+   })
    return gulp.src('./src/index.js')
       .pipe(plumber())
+      .pipe(envs)
       .pipe(webpack(require('./webpack.config.js')))
-      .pipe(replace('{{ENV}}', 'development'))
       .pipe(header('/* copyright (c)tearoom6 2015 */'))
+      .pipe(envs.reset)
       .pipe(gulp.dest('./build'))
 })
 
