@@ -16,7 +16,7 @@ if ('production' !== process.env.NODE_ENV) {
     duration: true,
     diff: true
   })
-	middlewares.push(logger)
+  middlewares.push(logger)
 }
 const store = createStore(
   reducer,
