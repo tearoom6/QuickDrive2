@@ -23,6 +23,10 @@
       "message": "Clear",
       "description": "clear"
    },
+   "create": {
+      "message": "New",
+      "description": "create"
+   },
    "search_text": {
       "message": "Input search text",
       "description": "input search text"
@@ -38,6 +42,30 @@
    "favorite": {
       "message": "Favorite",
       "description": "favorite items"
+   },
+   "type_folder": {
+      "message": "Folder",
+      "description": "file type folder"
+   },
+   "type_doc": {
+      "message": "Doc",
+      "description": "file type doc"
+   },
+   "type_sheet": {
+      "message": "Sheet",
+      "description": "file type spreadsheet"
+   },
+   "type_slide": {
+      "message": "Slide",
+      "description": "file type slide"
+   },
+   "type_form": {
+      "message": "Form",
+      "description": "file type form"
+   },
+   "type_drawing": {
+      "message": "Drawing",
+      "description": "file type drawing"
    },
    "lastViewedAt": {
       "message": "Last Viewed At",

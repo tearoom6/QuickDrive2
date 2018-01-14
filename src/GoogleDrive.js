@@ -81,11 +81,37 @@ const listLimitedFiles = (reqParams, callback, limitCount = 0, pageToken = null)
   })
 }
 
+/**
+ * Create a new item by mime type.
+ * @param {String} mime type of a file you wanna create. See alse https://developers.google.com/drive/v3/web/mime-types.
+ *        (default: application/vnd.google-apps.file means a plain file in Google Drive)
+ * @param {String} name of a file you wanna create. (default: null means new file is named as the default name)
+ * @param {String} parent item id if needed. (default: null means new item will be created in root directory)
+ * @param {Function} callback Function to call when the request is complete. (default: null means no function will be called)
+ * @see https://developers.google.com/drive/v3/reference/files/create
+ */
+const createNewItem = (mimeType = 'application/vnd.google-apps.file', name = null, parentId = null, callback = null) => {
+  const resource = {
+    'mimeType': mimeType
+  }
+  if (name)
+    resource.name = name
+  if (parentId)
+    resource.parents = [parentId]
+
+  gapi.client.drive.files.create({
+    resource: resource
+  }).execute((resp) => {
+    if (callback) callback(resp.id)
+  })
+}
+
 const GoogleDrive = {
   auth,
   resetAuth,
   listAllFiles,
-  listLimitedFiles
+  listLimitedFiles,
+  createNewItem
 }
 
 export default GoogleDrive

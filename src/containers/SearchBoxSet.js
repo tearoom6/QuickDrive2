@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { onSearchBoxKeyDown, requestSearchItems, clearSearchBox } from '../actions'
+import { requestSearchItems } from '../actions'
 import SearchBox from '../components/SearchBox.js'
 
 const mapStateToProps = (state, ownProps) => {
