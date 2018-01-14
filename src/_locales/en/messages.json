@@ -27,6 +27,14 @@
       "message": "New",
       "description": "create"
    },
+   "copy": {
+      "message": "Copy",
+      "description": "copy"
+   },
+   "delete": {
+      "message": "Delete",
+      "description": "delete"
+   },
    "search_text": {
       "message": "Input search text",
       "description": "input search text"

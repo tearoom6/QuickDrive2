@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import moment from 'moment'
 import GoogleDrive from '../GoogleDrive.js'
 import { requestItems, requestNextPageItems } from '../actions'
@@ -37,7 +36,7 @@ class ItemList extends React.Component {
   }
 
   render() {
-    const { items, isLoading } = this.props
+    const { items, isLoading, onCopyClick, onDeleteClick } = this.props
     if (isLoading) {
       return (
         <div>
@@ -54,7 +53,11 @@ class ItemList extends React.Component {
             </div>
             <div className={'col-xs-11'}>
               <h5><a href={'https://drive.google.com/open?id=' + item.id} target="_blank">{item.name}</a></h5>
-              <p>{chrome.i18n.getMessage('lastViewedAt')}: {item.viewedByMeTime ? moment(item.viewedByMeTime).format(chrome.i18n.getMessage('dateFormat')) : '-'}</p>
+              <p>
+                {chrome.i18n.getMessage('lastViewedAt')}: {item.viewedByMeTime ? moment(item.viewedByMeTime).format(chrome.i18n.getMessage('dateFormat')) : '-'}&nbsp;
+                <button className={'btn btn-link'} onClick={e => onCopyClick(item.id)}>{chrome.i18n.getMessage('copy')}</button>&nbsp;
+                <button className={'btn btn-link'} onClick={e => onDeleteClick(item.id)}>{chrome.i18n.getMessage('delete')}</button>&nbsp;
+              </p>
             </div>
           </div>
         )}
@@ -71,7 +74,10 @@ ItemList.propTypes = {
     webViewLink: React.PropTypes.string,
     iconLink: React.PropTypes.string,
     viewedByMeTime: React.PropTypes.string
-  }).isRequired).isRequired
+  }).isRequired).isRequired,
+  onCopyClick: React.PropTypes.func.isRequired,
+  onDeleteClick: React.PropTypes.func.isRequired
 }
 
 export default ItemList
+

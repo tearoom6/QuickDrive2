@@ -100,9 +100,43 @@ const createNewItem = (mimeType = 'application/vnd.google-apps.file', name = nul
     resource.parents = [parentId]
 
   gapi.client.drive.files.create({
-    resource: resource
+    'resource': resource
   }).execute((resp) => {
     if (callback) callback(resp.id)
+  })
+}
+
+/**
+ * Copy an existing item.
+ * @param {String} id of a item you wanna copy.
+ * @param {String} name of a file you wanna copy to. (default: null means new file is named as the default name)
+ * @param {Function} callback Function to call when the request is complete. (default: null means no function will be called)
+ * @see https://developers.google.com/drive/v3/reference/files/copy
+ */
+const copyItem = (itemId, name = null, callback = null) => {
+  const resource = {}
+  if (name)
+    resource.name = name
+
+  gapi.client.drive.files.copy({
+    'fileId': itemId,
+    'resource': resource
+  }).execute((resp) => {
+    if (callback) callback(resp.id)
+  })
+}
+
+/**
+ * Delete an existing item.
+ * @param {String} id of a item you wanna delete.
+ * @param {Function} callback Function to call when the request is complete. (default: null means no function will be called)
+ * @see https://developers.google.com/drive/v3/reference/files/delete
+ */
+const deleteItem = (itemId, callback = null) => {
+  gapi.client.drive.files.delete({
+    'fileId': itemId
+  }).execute((resp) => {
+    if (callback) callback(resp)
   })
 }
 
@@ -111,7 +145,10 @@ const GoogleDrive = {
   resetAuth,
   listAllFiles,
   listLimitedFiles,
-  createNewItem
+  createNewItem,
+  copyItem,
+  deleteItem
 }
 
 export default GoogleDrive
+
