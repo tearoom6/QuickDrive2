@@ -27,7 +27,7 @@ class SearchBox extends React.Component {
             <span className={'sr-only'}>Toggle Dropdown</span>
           </button>
           <ul className={'dropdown-menu'} role="menu">
-            <li><a tabIndex="0" onClick={e => input.value = ''}>{chrome.i18n.getMessage('clear')}</a></li>
+            <li><a tabIndex="0" href="#" onClick={e => input.value = ''}>{chrome.i18n.getMessage('clear')}</a></li>
           </ul>
         </div>
       </span>
