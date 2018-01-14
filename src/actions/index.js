@@ -168,3 +168,17 @@ export const requestSearchItems = (searchText) => {
   }
 }
 
+export const requestCreateNewItem = (mimeType) => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      GoogleDrive.createNewItem(mimeType, null, null, (newItemId) => {
+        resolve([newItemId])
+      })
+    }).then( ([newItemId]) => {
+      // Open new tab.
+      // See https://developer.chrome.com/extensions/tabs.
+      chrome.tabs.create({'url': 'https://drive.google.com/open?id=' + newItemId})
+    })
+  }
+}
+
