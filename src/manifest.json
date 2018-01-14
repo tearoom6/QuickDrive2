@@ -15,6 +15,7 @@
       "default_popup": "index.html",
       "default_icon": "img/icon19.png"
    },
+   "options_page": "options.html",
    "permissions": [
       "identity",
       "storage",
