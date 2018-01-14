@@ -5,7 +5,7 @@ import CreateButtonSet from '../containers/CreateButtonSet.js'
 
 const MainForm = () => (
   <form className={'form-inline'}>
-    <small><a className={'none'} href="https://drive.google.com/drive/my-drive" target="_blank" tabIndex="-1">{chrome.i18n.getMessage('extName')}</a></small>
+    <small><a className={'none'} href="https://drive.google.com/drive/my-drive" target="_blank" tabIndex="0">{chrome.i18n.getMessage('extName')}</a></small>
     <SearchBoxSet />
     <CreateButtonSet />
     <ResetAuthButtonSet />
