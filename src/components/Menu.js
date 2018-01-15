@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 const Menu = ({ onMenuClick, active, children }) => (
   <li role="presentation"
       className={ active ? 'active' : '' }>
-    <a onClick={onMenuClick} tabIndex="0">{children}</a>
+    <a href="#" onClick={onMenuClick} tabIndex="0">{children}</a>
   </li>
 )
 

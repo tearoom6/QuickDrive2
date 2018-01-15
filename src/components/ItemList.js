@@ -49,7 +49,7 @@ class ItemList extends React.Component {
         {items.map(item =>
           <div key={item.id} className={styles.item_row + ' row thumbnail'}>
             <div className={'col-xs-1'}>
-              <a href={'https://drive.google.com/open?id=' + item.id} target="_blank"><img className={styles.icon} src={item.iconLink} alt={item.name} /></a>
+              <a tabIndex="-1" href={'https://drive.google.com/open?id=' + item.id} target="_blank"><img className={styles.icon} src={item.iconLink} alt={item.name} /></a>
             </div>
             <div className={'col-xs-11'}>
               <h5><a href={'https://drive.google.com/open?id=' + item.id} target="_blank">{item.name}</a></h5>
