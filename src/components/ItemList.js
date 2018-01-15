@@ -55,8 +55,10 @@ class ItemList extends React.Component {
               <h5><a href={'https://drive.google.com/open?id=' + item.id} target="_blank">{item.name}</a></h5>
               <p>
                 {chrome.i18n.getMessage('lastViewedAt')}: {item.viewedByMeTime ? moment(item.viewedByMeTime).format(chrome.i18n.getMessage('dateFormat')) : '-'}&nbsp;
-                <button className={'btn btn-link'} onClick={e => onCopyClick(item.id)}>{chrome.i18n.getMessage('copy')}</button>&nbsp;
-                <button className={'btn btn-link'} onClick={e => onDeleteClick(item.id)}>{chrome.i18n.getMessage('delete')}</button>&nbsp;
+                <div className={'btn-group btn-group-xs pull-right'} role="group">
+                  <button className={'btn btn-link btn-xs'} onClick={e => onCopyClick(item.id)}>{chrome.i18n.getMessage('copy')}</button>&nbsp;
+                  <button className={'btn btn-link btn-xs'} onClick={e => onDeleteClick(item.id)}>{chrome.i18n.getMessage('delete')}</button>&nbsp;
+                </div>
               </p>
             </div>
           </div>
