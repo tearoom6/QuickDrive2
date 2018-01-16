@@ -22,7 +22,7 @@ Quick Drive offers these functions.
 
 ### Environments
 
-- yarn 0.16.1
+- yarn 1.3.2
 - React / Redux
 - gulp / webpack / babel
 
