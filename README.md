@@ -30,16 +30,16 @@ Quick Drive offers these functions.
 
 ```Shell
 # build for development
-gulp build-dev
+./node_modules/gulp/bin/gulp.js build-dev
 
 # build for release
-gulp build
+./node_modules/gulp/bin/gulp.js build
 
 # compress to zip file
-gulp zip
+./node_modules/gulp/bin/gulp.js zip
 
 # continuous build by monitoring
-gulp watch
+./node_modules/gulp/bin/gulp.js watch
 ```
 
 ### build for development

@@ -6,6 +6,7 @@ import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH, SAVE_KEY_SEARCH_
 export const TYPE_NONE                  = 'NONE'
 export const TYPE_SHOW_ITEMS            = 'SHOW_ITEMS'
 export const TYPE_SHOW_ADDITIONAL_ITEMS = 'SHOW_ADDITIONAL_ITEMS'
+export const TYPE_REMOVE_ITEM           = 'REMOVE_ITEM'
 export const TYPE_SEARCH_ITEMS          = 'SEARCH_ITEMS'
 export const TYPE_RESET_AUTH_TOKEN      = 'RESET_AUTH_TOKEN'
 
@@ -33,6 +34,13 @@ const showAdditionalItems = (items) => {
   return {
     type: TYPE_SHOW_ADDITIONAL_ITEMS,
     items
+  }
+}
+
+const removeItem = (itemId) => {
+  return {
+    type: TYPE_REMOVE_ITEM,
+    itemId
   }
 }
 
@@ -178,6 +186,32 @@ export const requestCreateNewItem = (mimeType) => {
       // Open new tab.
       // See https://developer.chrome.com/extensions/tabs.
       chrome.tabs.create({'url': 'https://drive.google.com/open?id=' + newItemId})
+    })
+  }
+}
+
+export const requestCopyItem = (originItemId) => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      GoogleDrive.copyItem(originItemId, null, (newItemId) => {
+        resolve([newItemId])
+      })
+    }).then( ([newItemId]) => {
+      // Open new tab.
+      // See https://developer.chrome.com/extensions/tabs.
+      chrome.tabs.create({'url': 'https://drive.google.com/open?id=' + newItemId})
+    })
+  }
+}
+
+export const requestDeleteItem = (itemId) => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      GoogleDrive.deleteItem(itemId, () => {
+        resolve([])
+      })
+    }).then( ([]) => {
+      dispatch(removeItem(itemId))
     })
   }
 }

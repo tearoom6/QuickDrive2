@@ -27,6 +27,14 @@
       "message": "新規",
       "description": "create"
    },
+   "copy": {
+      "message": "コピー",
+      "description": "copy"
+   },
+   "delete": {
+      "message": "削除",
+      "description": "delete"
+   },
    "search_text": {
       "message": "検索語句を入力",
       "description": "input search text"

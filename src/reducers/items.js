@@ -8,6 +8,11 @@ const items = (state = [], action) => {
     case actions.TYPE_SHOW_ADDITIONAL_ITEMS:
       return state.concat(action.items)
 
+    case actions.TYPE_REMOVE_ITEM:
+      return state.filter( (item) => {
+        return item.id != action.itemId
+      })
+
     default:
       return state
   }
