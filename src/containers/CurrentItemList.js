@@ -12,11 +12,19 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     dispatch: dispatch,
-    onCopyClick: (itemId) => {
+    onCopyClick: (itemId, event) => {
       dispatch(requestCopyItem(itemId))
     },
-    onDeleteClick: (itemId) => {
-      dispatch(requestDeleteItem(itemId))
+    onDeleteClick: (itemId, event) => {
+      $(`#delete-${itemId}`).confirmation({
+        rootSelector: `#delete-${itemId}`,
+        placement: 'left',
+        singleton: true,
+        popout: true,
+        onConfirm: () => {
+          dispatch(requestDeleteItem(itemId))
+        }
+      }).confirmation('show')
     }
   }
 }

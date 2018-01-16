@@ -53,13 +53,13 @@ class ItemList extends React.Component {
             </div>
             <div className={'col-xs-11'}>
               <h5><a href={'https://drive.google.com/open?id=' + item.id} target="_blank">{item.name}</a></h5>
-              <p>
-                {chrome.i18n.getMessage('lastViewedAt')}: {item.viewedByMeTime ? moment(item.viewedByMeTime).format(chrome.i18n.getMessage('dateFormat')) : '-'}&nbsp;
+              <div>
+                {chrome.i18n.getMessage('lastViewedAt')}: {item.viewedByMeTime ? moment(item.viewedByMeTime).format(chrome.i18n.getMessage('dateFormat')) : '-'}
                 <div className={'btn-group btn-group-xs pull-right'} role="group">
-                  <button className={'btn btn-link btn-xs'} onClick={e => onCopyClick(item.id)}>{chrome.i18n.getMessage('copy')}</button>&nbsp;
-                  <button className={'btn btn-link btn-xs'} onClick={e => onDeleteClick(item.id)}>{chrome.i18n.getMessage('delete')}</button>&nbsp;
+                  <button className={'btn btn-link btn-xs'} onClick={e => onCopyClick(item.id, e)}>{chrome.i18n.getMessage('copy')}</button>
+                  <button id={'delete-' + item.id} className={'btn btn-link btn-xs'} onClick={e => onDeleteClick(item.id, e)}>{chrome.i18n.getMessage('delete')}</button>
                 </div>
-              </p>
+              </div>
             </div>
           </div>
         )}
