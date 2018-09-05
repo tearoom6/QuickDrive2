@@ -1,33 +1,44 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src',
+  mode: 'production',
+  entry: './src/index.js',
   output: {
     path: __dirname + '/dist/',
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx'],
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loaders: ['style', 'css?modules'],
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    })
-  ]
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+      },
+    }),
+  ],
 };
