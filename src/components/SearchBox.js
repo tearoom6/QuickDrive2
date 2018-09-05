@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import LocalStore from '../LocalStore.js'
 import {SAVE_KEY_SEARCH_TEXT} from '../constants.js'
 import styles from './SearchBox.css'

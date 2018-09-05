@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 import GoogleDrive from '../GoogleDrive.js'
 import { requestItems, requestNextPageItems } from '../actions'
@@ -69,16 +70,16 @@ class ItemList extends React.Component {
 }
 
 ItemList.propTypes = {
-  items: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.string.isRequired,
-    name: React.PropTypes.string.isRequired,
-    mimeType: React.PropTypes.string,
-    webViewLink: React.PropTypes.string,
-    iconLink: React.PropTypes.string,
-    viewedByMeTime: React.PropTypes.string
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    mimeType: PropTypes.string,
+    webViewLink: PropTypes.string,
+    iconLink: PropTypes.string,
+    viewedByMeTime: PropTypes.string
   }).isRequired).isRequired,
-  onCopyClick: React.PropTypes.func.isRequired,
-  onDeleteClick: React.PropTypes.func.isRequired
+  onCopyClick: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
 }
 
 export default ItemList
