@@ -2,14 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import GoogleDrive from '../GoogleDrive.js'
+import LocalStore from '../LocalStore.js'
 import { requestItems, requestNextPageItems } from '../actions'
-import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH} from '../constants.js'
+import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH, SAVE_KEY_LAST_ITEM_TYPE} from '../constants.js'
 import styles from './ItemList.css'
 
 const define_initialize_callback = (dispatch) => {
   window.initialize_items_list = () => {
     GoogleDrive.auth(true, () => {
-      dispatch(requestItems(ITEM_TYPE_FAVORITE))
+      LocalStore.load(SAVE_KEY_LAST_ITEM_TYPE, (results) => {
+        dispatch(requestItems(results[SAVE_KEY_LAST_ITEM_TYPE] || ITEM_TYPE_FAVORITE))
+      })
     })
   }
 }
