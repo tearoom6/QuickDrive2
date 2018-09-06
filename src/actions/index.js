@@ -1,7 +1,7 @@
 import moment from 'moment'
 import GoogleDrive from '../GoogleDrive.js'
 import LocalStore from '../LocalStore.js'
-import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH, SAVE_KEY_SEARCH_TEXT} from '../constants.js'
+import {ITEM_TYPE_RECENT, ITEM_TYPE_FAVORITE, ITEM_TYPE_SEARCH, SAVE_KEY_SEARCH_TEXT, SAVE_KEY_LAST_ITEM_TYPE} from '../constants.js'
 
 export const TYPE_NONE                  = 'NONE'
 export const TYPE_SHOW_ITEMS            = 'SHOW_ITEMS'
@@ -107,6 +107,7 @@ export const resetAuthToken = () => {
 
 export const requestItems = (itemType) => {
   clearLastRequest()
+  LocalStore.save(SAVE_KEY_LAST_ITEM_TYPE, itemType)
   return (dispatch) => {
     dispatch(loadLocalItems(itemType))
     if (itemType === ITEM_TYPE_SEARCH) {
