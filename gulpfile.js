@@ -12,7 +12,6 @@ const header = require('gulp-header')
 const replace = require('gulp-replace')
 const del = require('del')
 const zip = require('gulp-zip')
-const runSequence = require('run-sequence')
 const env = require('gulp-env')
 
 gulp.task('config', () => {
@@ -87,27 +86,21 @@ gulp.task('clean', (callback) => {
    return del(['build', '.tmp', 'dist'], callback)
 })
 
-gulp.task('build', (callback) => {
-   console.log('build.')
-   runSequence(
-      'clean',
-      ['config', 'html', 'img', 'js'],
-      callback
-   )
-})
+gulp.task('build', gulp.series(
+   'clean',
+   gulp.parallel('config', 'html', 'img', 'js'),
+   (callback) => { callback() }
+))
 
-gulp.task('build-dev', (callback) => {
-   console.log('build (dev).')
-   runSequence(
-      'clean',
-      ['config-dev', 'html', 'img', 'js-dev'],
-      callback
-   )
-})
+gulp.task('build-dev', gulp.series(
+   'clean',
+   gulp.parallel('config-dev', 'html', 'img', 'js-dev'),
+   (callback) => { callback() }
+))
 
 gulp.task('watch', () => {
-   gulp.watch('./src/**/*.html', ['html'])
-   gulp.watch('./src/**/*.js', ['js-dev'])
+   gulp.watch('./src/**/*.html', gulp.task('html'))
+   gulp.watch('./src/**/*.js', gulp.task('js-dev'))
 })
 
-gulp.task('default', ['build'])
+gulp.task('default', gulp.task('build'))
