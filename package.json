@@ -12,7 +12,7 @@
   "author": "t-murota",
   "license": "MIT",
   "devDependencies": {
-    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
@@ -22,7 +22,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-env": "^0.4.0",
     "gulp-extend": "^0.3.0",
-    "gulp-header": "^2.0.5",
+    "gulp-header": "^2.0.9",
     "gulp-imagemin": "^6.0.0",
     "gulp-minify-html": "^1.0.6",
     "gulp-plumber": "^1.2.0",
@@ -32,7 +32,7 @@
     "react-scripts": "3.0.1",
     "redux-devtools": "^3.3.1",
     "style-loader": "^0.23.0",
-    "webpack": "^4.17.2",
+    "webpack": "^4.35.3",
     "webpack-stream": "^5.1.1"
   },
   "dependencies": {
@@ -41,7 +41,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.1",
+    "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   }
