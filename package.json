@@ -12,9 +12,9 @@
   "author": "t-murota",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
-    "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "del": "^5.0.0",
