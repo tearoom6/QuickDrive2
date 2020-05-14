@@ -1,0 +1,37 @@
+{
+  "home": {
+    "title": "Home",
+    "about": "What's Quick Drive?",
+    "description": "Chrome extension to provide quick access to your Google Drive items.\nThis is an open source software.",
+    "functions": "Functions",
+    "function-01": "View stared items",
+    "function-02": "View recent items",
+    "function-03": "Search items by keyword",
+    "function-04": "Jump to each item pages",
+    "function-05": "Link to top page of Google Drive"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+
+    "caption-01": "",
+    "content-01": "tearoom6 (\"we\", \"us\", or \"our\") operates the Quick Drive Chrome extension (the \"Extension\").\n\nThis page informs you of our policies regarding the use of personal data when you use our Extension.\n\nWe use your data to provide and improve the Service. By using the Extension, you agree to the use of information in accordance with this policy.",
+
+    "caption-02": "Use of Data",
+    "content-02": "Quick Drive connects to external services of Google Inc. through OAuth. Data which is retrieved from the external services contains basic user information and Google Drive contents. Data which is retrieved from the external services is used only for functions of the Extension.",
+
+    "caption-03": "Information Collection",
+    "content-03": "We does not collect various personal data in various places except inside the Extension and Chrome browser itself.",
+
+    "caption-04": "Links To Other Sites",
+    "content-04": "If you click on a third party link in the Extension, you will be directed to that third party's site that are not operated by us. We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.",
+
+    "caption-05": "Disclaimer",
+    "content-05": "We are not responsible for any damages caused by using the Extension.",
+
+    "caption-06": "Changes To This Privacy Policy",
+    "content-06": "We may update our Privacy Policy to comply with laws. We will notify you of any changes by posting the new Privacy Policy on this page.\n\nChanges to this Privacy Policy are effective when they are posted on this page.",
+
+    "caption-07": "Contact Us",
+    "content-07": "If you have any questions about this Privacy Policy, please contact us:\n\nBy email: tearoom6.biz@gmail.com"
+  }
+}
